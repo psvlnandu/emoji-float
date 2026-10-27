@@ -17,7 +17,7 @@ Cute emoji float up from the left side of your taskbar while you type. The faste
 It only counts *how fast* you type. Which keys you press is never stored.
 
 ## Get it
-**Easy way:** download [`dist/EmojiFloat.exe`](dist/EmojiFloat.exe) and double-click it. Windows may say *"Windows protected your PC"*. If it does, click **More info → Run anyway**. That happens with any homemade app.
+**Easy way:** download [`EmojiFloat.exe`](https://github.com/psvlnandu/emoji-float/releases/latest/download/EmojiFloat.exe) from the latest release, put it somewhere permanent (not Downloads), and double-click it. Windows may say *"Windows protected your PC"*. If it does, click **More info → Run anyway**. That happens with any homemade app.
 
 **Customize it:** change the emoji, critters or colors in the `THEMES` section at the top of `emoji_float.pyw`. Then run:
 ```
@@ -28,11 +28,11 @@ pythonw emoji_float.pyw
 **Build your own .exe:**
 ```
 pip install pyinstaller
-python -m PyInstaller --noconfirm --onefile --windowed --name EmojiFloat --icon emoji_float.ico emoji_float.pyw
+python -m PyInstaller --noconfirm --onefile --windowed --noupx --name EmojiFloat --icon emoji_float.ico emoji_float.pyw
 ```
 
 ## Using it
-Right-click the tray icon to switch themes ✨, pause it, or quit.
+Right-click the tray icon to tick **Start with Windows** (so it comes back after a restart), switch themes ✨, pause it, or quit.
 
 > On a work laptop, check that your company allows running your own apps first. Some antivirus tools are wary of anything that listens to the keyboard.
 
