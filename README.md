@@ -1,6 +1,6 @@
 # 🌸 Emoji Float
 
-![Emoji floating up from the taskbar while typing in Notepad](media/demo.gif)
+![Halloween emoji floating up from the taskbar while typing](media/demo.gif)
 
 Hey, this is my emoji floater! Add it to your work or personal laptop and your typing gets a lot more fun.
 
