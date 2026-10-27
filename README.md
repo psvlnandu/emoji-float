@@ -1,5 +1,7 @@
 # 🌸 Emoji Float
 
+![Emoji floating up from the taskbar while typing in Notepad](media/demo.gif)
+
 Hey, this is my emoji floater! Add it to your work or personal laptop and your typing gets a lot more fun.
 
 I built it one evening while working. What a world we live in! There are no dinosaurs, but there are 🎃 pumpkins for fall, ⛄ snowmen for winter, a 🧸 bear for Valentine's, and lots more.
