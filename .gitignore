@@ -2,3 +2,4 @@ build/
 dist/
 New folder/
 __pycache__/
+media/*.mp4
