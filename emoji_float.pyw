@@ -9,6 +9,7 @@ Run:  pythonw emoji_float.pyw     (theme, pause and quit live on the tray icon)
 import ctypes
 import ctypes.wintypes as wt
 import math
+import os
 import random
 import sys
 import time
@@ -550,10 +551,33 @@ def main():
     apply_theme()
     QTimer(app, timeout=lambda: choice == AUTO and apply_theme()).start(10 * 60 * 1000)
 
+    # Launch at login via the per-user Run key (no admin needed). Re-saved on every start so the
+    # entry follows the exe if it gets moved.
+    run_key = QSettings(r"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run",
+                        QSettings.Format.NativeFormat)
+
+    def launch_command():
+        if getattr(sys, "frozen", False):
+            return f'"{sys.executable}"'
+        return f'"{sys.executable}" "{os.path.abspath(sys.argv[0])}"'
+
+    def set_startup(on):
+        if on:
+            run_key.setValue("EmojiFloat", launch_command())
+        else:
+            run_key.remove("EmojiFloat")
+        run_key.sync()
+
+    startup = QAction("Start with Windows", menu, checkable=True, checked=run_key.contains("EmojiFloat"))
+    if startup.isChecked():
+        set_startup(True)
+    startup.toggled.connect(set_startup)
+
     pause = QAction("Pause", menu, checkable=True)
     pause.toggled.connect(lambda on: setattr(overlay, "paused", on))
     quit_action = QAction("Quit", menu)
     quit_action.triggered.connect(app.quit)
+    menu.addAction(startup)
     menu.addAction(pause)
     menu.addSeparator()
     menu.addAction(quit_action)
